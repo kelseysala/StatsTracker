@@ -2,9 +2,23 @@
 
 /*
 Author: Kelsey Sala
+DONE:
+- Ability to create matches
+- Ability to define starting lineup for each set
+- Ability to track set specific statistics like timeouts, substitutions, offensive/defensive stats, etc.
+- View of current rotation positions by player
+- Summary of team statistics at the end of a match
 TODO:
-- Summarize team stats on End Match
-- Summarize individual stats on End Match
+- Summarize individual match stats
+- Summarize individual and team stats across matches
+- Add an undo function - every thing should be a vbStat object, type=homeSub/awaySub/homeTO/awayTo/pointFor/pointAgainst/libIn/LibOut/etc.
+- Choose between Phoenix 14UG vs 15UG vs 16UG vs 18UB
+- Implement a shared back-end so you can synchronize saved matches back to a central server so data isn't siloed on a single device
+- Likely going to remove Toggle Server, and Minus Points buttons with an Undo button
+META-DETAILS:
+- Under 500 lines of JavaScript
+- Under 100 lines of CSS
+- Under 150 lines of HTML
 */
 
 var vbMatch;
@@ -188,7 +202,7 @@ document.getElementById('addTimeoutAway').addEventListener('click', () => {
 document.getElementById('startMatch').addEventListener('click', () => {
   document.getElementById('startMatchTbl').hidden = false;
   document.getElementById(     'mainMenu').hidden = true;
-
+  vbStats = [];
   initializeLineUp();
 });
 
