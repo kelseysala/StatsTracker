@@ -70,6 +70,16 @@ document.getElementById('addStat').addEventListener('click', () => {
   document.getElementById('statPlayer').innerHTML = getRosterComboBoxOptions();
 });
 
+document.getElementById('backoutStat').addEventListener('click', () => {
+  document.getElementById('statPlayer').value = "Blank";
+  document.getElementById(  'statType').value = "Blank";
+
+  document.getElementById('addHomeStat').hidden = true;
+
+  document.getElementById('manageSetTbl').hidden = false;
+  document.getElementById('rotationsTbl').hidden = false;
+});
+
 document.getElementById('submitStat').addEventListener('click', () => {
   const vbStat = new Object();
   vbStat.statPlayer = document.getElementById('statPlayer').value;
@@ -78,7 +88,8 @@ document.getElementById('submitStat').addEventListener('click', () => {
 
   console.log("stat submitted: '" + vbStat.statPlayer + "' - '" + vbStat.statType + "' - '" + vbStats.length + "'");
 
-  document.getElementById('statType').value = "Blank";
+  document.getElementById('statPlayer').value = "Blank";
+  document.getElementById(  'statType').value = "Blank";
 
   document.getElementById('addHomeStat').hidden = true;
 
@@ -443,7 +454,7 @@ function getTeamStatSummary(statName) {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+  navigator.serviceWorker.register('/StatsTracker/service-worker.js').then((registration) => {
     console.log('Service Worker registered with scope:', registration.scope);
   }).catch((error) => {
     console.log('Service Worker registration failed:', error);
