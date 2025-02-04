@@ -1,7 +1,7 @@
 {
     "name": "Phoenix Volleyball Stats Tracker",
     "short_name": "PVST",
-    "start_url": "/index.html",
+    "start_url": "/StatsTracker/index.html",
     "display": "standalone",
     "icons": [
         {
